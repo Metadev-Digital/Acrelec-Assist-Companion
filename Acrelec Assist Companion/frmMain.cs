@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Acrelec_Assist_Companion.Properties;
+using System;
 using System.Windows.Forms;
 
 
@@ -8,7 +9,7 @@ using System.Windows.Forms;
  * Designed by: Kevin Sherman at Acrelec America
  * Contact at: Kevin@Metadevllc.com
  * 
- * Copyright liscence Apache Liscenece 2.0 - Enjoy boys, keep updating without me. Fork to your hearts content
+ * Copyright MIT License - Enjoy boys, keep updating without me. Fork to your hearts content
  */
 
 //---------------FOR VERSION 1.0------------------
@@ -26,6 +27,7 @@ using System.Windows.Forms;
 
 namespace Acrelec_Assist_Companion
 {
+
     public partial class frmMain : Form
     {
         public frmMain()
@@ -42,7 +44,7 @@ namespace Acrelec_Assist_Companion
         /// <param name="e"></param>
         private void frmMain_Load(object sender, EventArgs e)
         {
-
+            lblVersion.Text = "Version " + Settings.Default.version;
         }
 
 
@@ -68,6 +70,17 @@ namespace Acrelec_Assist_Companion
         }
 
         /// <summary>
+        /// Launches the frmAbout window.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void mnuHelpAbout_Click(object sender, EventArgs e)
+        {
+            frmAbout aboutFrame = new frmAbout();
+            aboutFrame.ShowDialog();
+        }
+
+        /// <summary>
         /// Establishes a connection to the database, providing a visual context to the user.
         /// </summary>
         private void establishConnection()
@@ -77,6 +90,7 @@ namespace Acrelec_Assist_Companion
             wait(10000);
             lblConnectionEstablishing.Visible = false;
             lblConnectionFailed.Visible = true;
+
         }
 
         public void wait(int milliseconds)
@@ -101,5 +115,7 @@ namespace Acrelec_Assist_Companion
                 Application.DoEvents();
             }
         }
+
+
     }
 }
