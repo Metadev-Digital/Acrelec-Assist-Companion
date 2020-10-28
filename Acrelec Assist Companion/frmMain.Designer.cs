@@ -207,6 +207,7 @@
             this.mnuHelpReport.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.H)));
             this.mnuHelpReport.Size = new System.Drawing.Size(198, 22);
             this.mnuHelpReport.Text = "Report Issue";
+            this.mnuHelpReport.Click += new System.EventHandler(this.mnuHelpReport_Click);
             // 
             // toolStripMenuItem4
             // 

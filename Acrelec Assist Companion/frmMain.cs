@@ -1,13 +1,14 @@
-﻿using Acrelec_Assist_Companion.Properties;
+﻿using AAInfo;
+using Acrelec_Assist_Companion.Properties;
 using System;
 using System.Windows.Forms;
 
 
 /*Acrelec Assist Companion Version 0.5
  * Created: 10/21/2020
- * Updated: 10/21/2020
+ * Updated: 10/28/2020
  * Designed by: Kevin Sherman at Acrelec America
- * Contact at: Kevin@Metadevllc.com
+ * Contact at: Kevin@Metadevdigital.com
  * 
  * Copyright MIT License - Enjoy boys, keep updating without me. Fork to your hearts content
  */
@@ -70,14 +71,27 @@ namespace Acrelec_Assist_Companion
         }
 
         /// <summary>
-        /// Launches the frmAbout window.
+        /// Launches the about window.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void mnuHelpAbout_Click(object sender, EventArgs e)
         {
-            frmAbout aboutFrame = new frmAbout();
-            aboutFrame.ShowDialog();
+            ErrorReporter errorReporter = new ErrorReporter("Acrelec Assist Companion");
+            InfoDisplayer infoDisplayer = new InfoDisplayer("Acrelec Assist Companion", "Acrelec America", "MIT License", 
+                "assist in the reading and processing of orders and installs to keep customer communication from falling through the cracks", errorReporter);
+            infoDisplayer.showForm();
+        }
+        
+        /// <summary>
+        /// Launches an error message window
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void mnuHelpReport_Click(object sender, EventArgs e)
+        {
+            ErrorReporter errorReporter = new ErrorReporter("Acrelec Assist Companion");
+            errorReporter.showForm();
         }
 
         /// <summary>
